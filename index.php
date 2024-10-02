@@ -1,5 +1,5 @@
 <?php 
-$text = "Hello World";
+$title = "PHP Badwords";
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +28,27 @@ $text = "Hello World";
 
 <body>
     <!-- Container  -->
-    <div class="container mx-auto py-4" id="app">
-        <h1>
+    <div class="container border border-1 shadow py-4 my-5">
+        <!-- Title   -->
+        <h1 class="text-center text-decoration-underline py-4">
         <?php 
-        echo $text
+        echo $title
         ?>
         </h1>
+        <!-- Inputs form  -->
+        <form action="store.php" method="GET">
+            <div class="mb-3">
+                <label for="phrases" class="form-label">Insert a phrases to censored</label>
+                <input type="text" class="form-control" name="phrase" id="phrases">
+            </div>
+            <div class="mb-3 w-25">
+                <label for="censoredWord" class="form-label">Insert a word you want to censored</label>
+                <input type="text" class="form-control" name="censoredWord" id="censoredWord">
+            </div>
+            <button type="submit" class="btn btn-primary">Censored</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </form>
+
     </div>
 </body>
 
