@@ -1,7 +1,10 @@
 <?php 
-$title = "PHP Badwords";
-$phrase = $_GET["phrase"];
-$censoredWord = $_GET["censoredWord"];
+// Vaiables
+$title = "PHP Badwords"; // Store static title
+$censoreCode = "***"; // Store a static string
+$phrase = $_GET["phrase"]; // Store the data geting from user using GET method in form inputs
+$censoredWord = $_GET["censoredWord"]; // Store the data geting from user using GET method in form inputs
+$censoredPhrases = str_ireplace($censoredWord,$censoreCode,$phrase); // Replace string in array strings
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +40,7 @@ $censoredWord = $_GET["censoredWord"];
         echo $title
         ?>
         </h1>
+        <!-- Phrase and length geting from form  -->
         <div>
             <i>Your Phrase is:</i>
             <h2>
@@ -50,15 +54,39 @@ $censoredWord = $_GET["censoredWord"];
                 echo strlen($phrase)
                 ?>
             </h2>
+            <!-- Var Dump the phrase  -->
             <strong>
                 <i>
-                <?php
+                    <?php
                 echo var_dump($phrase)
                 ?>
                 </i>
             </strong>
         </div>
-        <div class="border"></div>
+        <div class="border my-3"></div>
+        <!-- Censored Phrase and length  -->
+        <div>
+            <i>Your censored Phrase is:</i>
+            <h2>
+                <?php
+                echo $censoredPhrases
+                ?>
+            </h2>
+            <i>Your censored Phrase length is:</i>
+            <h2>
+                <?php
+                echo strlen($censoredPhrases)
+                ?>
+            </h2>
+            <!-- Var Dump the censored phrase  -->
+            <strong>
+                <i>
+                <?php
+                echo var_dump($censoredPhrases)
+                ?>
+                </i>
+            </strong>
+        </div>
     </div>
 </body>
 
